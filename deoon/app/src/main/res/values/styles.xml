@@ -468,7 +468,7 @@
         <item name="android:layout_height">@dimen/debite_and_debentures_item_edit_image_button_layout_height</item>
         <item name="android:layout_marginStart">@dimen/debite_and_debentures_item_edit_image_button_layout_marginStart</item>
         <item name="android:layout_marginTop">@dimen/debite_and_debentures_item_edit_image_button_layout_marginTop</item>
-        <item name="android:src">@drawable/edit_24</item>
+        <item name="android:src">@drawable/edit_svg</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:tint">@color/white</item>
     </style>

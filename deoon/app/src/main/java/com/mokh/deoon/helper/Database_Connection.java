@@ -6,10 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.mokh.deoon.items.Debentures_items;
-import com.mokh.deoon.items.Depits_items;
-import com.mokh.deoon.items.Items_of_all_customers;
-import com.mokh.deoon.items.Items_of_all_workrers;
+import com.mokh.deoon.models.Debentures_model;
+import com.mokh.deoon.models.Depits_model;
+import com.mokh.deoon.models.All_customers_model;
+import com.mokh.deoon.models.All_workrers_model;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -301,9 +301,9 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<Items_of_all_customers> getAllCustomersTOListView(){
+    public ArrayList<All_customers_model> getAllCustomersTOListView(){
 
-        ArrayList<Items_of_all_customers> result =new ArrayList<>();
+        ArrayList<All_customers_model> result =new ArrayList<>();
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  customers  ORDER BY customer_name ASC ",null);
         res.moveToFirst();
@@ -312,7 +312,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String customer_name =res.getString(res.getColumnIndex("customer_name"));
             String customer_phone_number=res.getString(res.getColumnIndex("customer_phone_number"));
 
-            result.add(new Items_of_all_customers(customer_name,customer_phone_number));
+            result.add(new All_customers_model(customer_name,customer_phone_number));
             res.moveToNext();
         }
 
@@ -320,9 +320,9 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<Items_of_all_workrers> getAllWorkersTOListView(){
+    public ArrayList<All_workrers_model> getAllWorkersTOListView(){
 
-        ArrayList<Items_of_all_workrers> result =new ArrayList<>();
+        ArrayList<All_workrers_model> result =new ArrayList<>();
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  employees  ORDER BY employee_name ASC ",null);
         res.moveToFirst();
@@ -330,7 +330,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
             String customer_name =res.getString(res.getColumnIndex("employee_name"));
 
-            result.add(new Items_of_all_workrers(customer_name));
+            result.add(new All_workrers_model(customer_name));
             res.moveToNext();
         }
 
@@ -374,7 +374,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getAllDebits(String customername){
 
-        ArrayList<Depits_items> arr=new ArrayList<Depits_items>();
+        ArrayList<Depits_model> arr=new ArrayList<Depits_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  debits where customer_name='"+customername+"' ORDER BY depits_id DESC",null);
@@ -389,7 +389,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String hand=res.getString(res.getColumnIndex("hand"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Depits_items(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
+            arr.add(new Depits_model(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
 
             res.moveToNext();
         }
@@ -419,7 +419,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getLastDebit(String customername){
 
-        ArrayList<Depits_items> arr=new ArrayList<Depits_items>();
+        ArrayList<Depits_model> arr=new ArrayList<Depits_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  debits where depits_id=(select max(depits_id) from debits where customer_name='"+customername+"') ",null);
@@ -434,7 +434,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String hand=res.getString(res.getColumnIndex("hand"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Depits_items(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
+            arr.add(new Depits_model(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
 
 
 
@@ -448,7 +448,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getDebiteByDate(String customername,String ddate){
 
-        ArrayList<Depits_items> arr=new ArrayList<Depits_items>();
+        ArrayList<Depits_model> arr=new ArrayList<Depits_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  debits where  customer_name="+customername+" and date like'"+ddate+"%'",null);
@@ -463,7 +463,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String hand=res.getString(res.getColumnIndex("hand"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Depits_items(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
+            arr.add(new Depits_model(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
 
 
 
@@ -561,7 +561,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getAllDebenture(String customerName) {
 
-        ArrayList<Debentures_items> arr=new ArrayList<Debentures_items>();
+        ArrayList<Debentures_model> arr=new ArrayList<Debentures_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         //Cursor res=db.rawQuery("select * from  debentures where customer_name='"+customername+"'",null);
@@ -576,7 +576,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String money_paied=res.getString(res.getColumnIndex("money_paied"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Debentures_items(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
+            arr.add(new Debentures_model(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
 
 
 
@@ -611,7 +611,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getLastDebenture(String customerName){
 
-        ArrayList<Debentures_items> arr=new ArrayList<Debentures_items>();
+        ArrayList<Debentures_model> arr=new ArrayList<Debentures_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();//
         //Cursor res=db.rawQuery("select * from  debentures where debenture_id=(select max(debenture_id) from debentures where customer_name='"+customerName+"')",null);
@@ -626,7 +626,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String money_paied=res.getString(res.getColumnIndex("money_paied"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Debentures_items(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
+            arr.add(new Debentures_model(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
 
 
 
@@ -639,7 +639,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getDebentureByDate(String ddate){
 
-        ArrayList<Debentures_items> arr=new ArrayList<Debentures_items>();
+        ArrayList<Debentures_model> arr=new ArrayList<Debentures_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();//
         Cursor res=db.rawQuery("select * from  debentures where  date like'%"+ddate+"'",null);
@@ -652,7 +652,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String money_paied=res.getString(res.getColumnIndex("money_paied"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Debentures_items(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
+            arr.add(new Debentures_model(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
 
 
 
@@ -760,7 +760,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getAllDebitsForPDF(String customername){
 
-        ArrayList<Depits_items> arr=new ArrayList<Depits_items>();
+        ArrayList<Depits_model> arr=new ArrayList<Depits_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from  debits where customer_name='"+customername+"' ORDER BY depits_id",null);
@@ -775,7 +775,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String hand=res.getString(res.getColumnIndex("hand"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Depits_items(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
+            arr.add(new Depits_model(Integer.valueOf(depits_id),Integer.valueOf(deserved_amount),employee_name,customer_name,description,hand,date));
 
             res.moveToNext();
         }
@@ -787,7 +787,7 @@ public class Database_Connection extends SQLiteOpenHelper {
 
     public ArrayList getAllDebentureForPDF(String customerName) {
 
-        ArrayList<Debentures_items> arr=new ArrayList<Debentures_items>();
+        ArrayList<Debentures_model> arr=new ArrayList<Debentures_model>();
 
         SQLiteDatabase db=this.getReadableDatabase();
         //Cursor res=db.rawQuery("select * from  debentures where customer_name='"+customername+"'",null);
@@ -802,7 +802,7 @@ public class Database_Connection extends SQLiteOpenHelper {
             String money_paied=res.getString(res.getColumnIndex("money_paied"));
             String date=res.getString(res.getColumnIndex("date"));
 
-            arr.add(new Debentures_items(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
+            arr.add(new Debentures_model(Integer.valueOf(debenture_id),Integer.valueOf(money_paied),employee_name,date,customer_name));
 
 
 

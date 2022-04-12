@@ -141,11 +141,7 @@
             android:exported="true"
 
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -184,7 +180,9 @@
             android:label="@string/header_menu_customers_all_customers" />
         <activity
             android:name=".activities.ProtictionQquestionaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="استعاده كلمه المرور"
+            />
         <activity
             android:name=".activities.Login_activity"
             android:theme="@style/noaction2"

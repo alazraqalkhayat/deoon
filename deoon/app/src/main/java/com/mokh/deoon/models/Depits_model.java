@@ -1,6 +1,6 @@
-package com.mokh.deoon.items;
+package com.mokh.deoon.models;
 
-public class Depits_items {
+public class Depits_model {
 
     int depit_id,deserved_amount;
     String employee_name;
@@ -53,7 +53,7 @@ public class Depits_items {
         this.date = date;
     }
 
-    public Depits_items(int depit_id, int deserved_amount, String employee_name, String customer_name, String description, String hand, String date) {
+    public Depits_model(int depit_id, int deserved_amount, String employee_name, String customer_name, String description, String hand, String date) {
         this.depit_id = depit_id;
         this.deserved_amount = deserved_amount;
         this.employee_name = employee_name;

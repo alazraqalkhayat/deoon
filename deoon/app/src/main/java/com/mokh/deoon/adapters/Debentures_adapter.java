@@ -19,7 +19,7 @@ import com.mokh.deoon.activities.CheckPasswordActivity;
 import com.mokh.deoon.activities.CreateInternalPasswordActivity;
 import com.mokh.deoon.activities.EditDebentureDetailsActivity;
 import com.mokh.deoon.activities.SearchForDebentureActivity;
-import com.mokh.deoon.items.Debentures_items;
+import com.mokh.deoon.models.Debentures_model;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.Debentures_view_holder> {
 
-    ArrayList<Debentures_items> debentures = new ArrayList<Debentures_items>();
+    ArrayList<Debentures_model> debentures = new ArrayList<Debentures_model>();
 
 
     Context context;
@@ -37,7 +37,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
 
     Database_Connection db;
 
-    public Debentures_adapter(Context context, ArrayList<Debentures_items> debentures){
+    public Debentures_adapter(Context context, ArrayList<Debentures_model> debentures){
 
         this.context=context;
         this.debentures=debentures;
@@ -54,7 +54,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
     @Override
     public void onBindViewHolder(@NonNull Debentures_view_holder holder, int position) {
 
-        Debentures_items current_items=debentures.get(position);
+        Debentures_model current_items=debentures.get(position);
 
 
 
@@ -84,7 +84,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
 
     }
 
-    private void showDialogForCheckPassword(Debentures_items current_items, String option){
+    private void showDialogForCheckPassword(Debentures_model current_items, String option){
 
         new SweetAlertDialog(context,SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("كلمة المرور")
@@ -106,7 +106,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
 
     }
 
-    private void checkBeforeEditDebenture(Debentures_items current_items, String forWoard){
+    private void checkBeforeEditDebenture(Debentures_model current_items, String forWoard){
 
         if(forWoard.equalsIgnoreCase("check_password")){
             intent=new Intent(context, CheckPasswordActivity.class);
@@ -127,7 +127,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
 
     }
 
-    private void checkBeforeDeleteDebenture(Debentures_items current_items){
+    private void checkBeforeDeleteDebenture(Debentures_model current_items){
 
 
             intent = new Intent(context, CheckPasswordActivity.class);
@@ -139,7 +139,7 @@ public class Debentures_adapter extends RecyclerView.Adapter<Debentures_adapter.
 
     }
 
-    private void showDialogForDeletedebenture(Debentures_items current_items){
+    private void showDialogForDeletedebenture(Debentures_model current_items){
         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
         sweetAlertDialog.setTitleText("تأكيد الحذف");
         sweetAlertDialog.setContentText("هل أنت متأكد من حذف هذا السند..!");

@@ -38,7 +38,7 @@
 
                         <ImageView
                             style="@style/all_edit_text_image_view_style"
-                            android:src="@drawable/person"
+                            android:src="@drawable/customers_svg"
                             android:background="@drawable/new_shape_of_edit_text_image_view"
                             />
 
@@ -70,7 +70,7 @@
 
                         <ImageView
                             style="@style/all_edit_text_image_view_style"
-                            android:src="@drawable/person"
+                            android:src="@drawable/description_svg"
                             android:background="@drawable/new_shape_of_edit_text_image_view"
                             />
 
@@ -102,7 +102,7 @@
 
                         <ImageView
                             style="@style/all_edit_text_image_view_style"
-                            android:src="@drawable/deserved_amount"
+                            android:src="@drawable/mony_svg"
                             android:background="@drawable/new_shape_of_edit_text_image_view"
                             />
 
@@ -134,7 +134,7 @@
 
                         <ImageView
                             style="@style/all_edit_text_image_view_style"
-                            android:src="@drawable/person"
+                            android:src="@drawable/who_git_it_svg"
                             android:background="@drawable/new_shape_of_edit_text_image_view"
                             />
 
@@ -166,7 +166,7 @@
 
                         <ImageView
                             style="@style/all_edit_text_image_view_style"
-                            android:src="@drawable/person"
+                            android:src="@drawable/worker_svg"
                             android:background="@drawable/new_shape_of_edit_text_image_view"
                             />
 

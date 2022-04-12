@@ -20,7 +20,7 @@
             >
             <ImageView
                 style="@style/all_edit_text_image_view_style"
-                android:src="@drawable/person"
+                android:src="@drawable/customers_svg"
                 android:background="@drawable/new_shape_of_edit_text_image_view"
                 />
 

@@ -1,10 +1,10 @@
-package com.mokh.deoon.items;
+package com.mokh.deoon.models;
 
-public class Items_of_all_customers {
+public class All_customers_model {
 
     String customer_name,customer_phone_number;
 
-    public Items_of_all_customers(String customer_name, String customer_phone_number) {
+    public All_customers_model(String customer_name, String customer_phone_number) {
         this.customer_name = customer_name;
         this.customer_phone_number = customer_phone_number;
     }

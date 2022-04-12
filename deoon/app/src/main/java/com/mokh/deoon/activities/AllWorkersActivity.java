@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mokh.deoon.helper.Database_Connection;
-import com.mokh.deoon.items.Items_of_all_workrers;
+import com.mokh.deoon.models.All_workrers_model;
 import com.mokh.deoon.R;
 import com.mokh.deoon.helper.Shared_Helper;
 
@@ -26,7 +26,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AllWorkersActivity extends AppCompatActivity {
 
-    ArrayList<Items_of_all_workrers> items_of_all_workers_arr;
+    ArrayList<All_workrers_model> items_of_all_workers_arr;
     ListView all_workers_list_view;
     All_workers_list_adapter all_workers_list_adapter;
     Database_Connection db;
@@ -95,10 +95,10 @@ public class AllWorkersActivity extends AppCompatActivity {
         Intent go_to_edit_worker_details_activity_intent;
         Bundle go_to_edit_worker_details_activity_bunle;
 
-        ArrayList<Items_of_all_workrers> arr;
+        ArrayList<All_workrers_model> arr;
         Context context;
 
-        public All_workers_list_adapter(Context context, ArrayList<Items_of_all_workrers> arr) {
+        public All_workers_list_adapter(Context context, ArrayList<All_workrers_model> arr) {
             this.context=context;
             this.arr = arr;
 
@@ -125,7 +125,7 @@ public class AllWorkersActivity extends AppCompatActivity {
         @Override
         public View getView(final int position, View view, ViewGroup viewGroup) {
 
-            Items_of_all_workrers current_items=arr.get(position);
+            All_workrers_model current_items=arr.get(position);
 
 
 
@@ -155,7 +155,7 @@ public class AllWorkersActivity extends AppCompatActivity {
         }
 
 
-        private void showDialog(Items_of_all_workrers current_items){
+        private void showDialog(All_workrers_model current_items){
             SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
             sweetAlertDialog.setTitleText("كلمة المرور");
             sweetAlertDialog.setContentText("إن بياناتك معرضه للخطر .. قم بإنشاء كلمة مرور لأمان اكبر ");
@@ -175,7 +175,7 @@ public class AllWorkersActivity extends AppCompatActivity {
             sweetAlertDialog.show();
         }
 
-        private void checkBeforeEditWorker(Items_of_all_workrers current_items, String forwaord){
+        private void checkBeforeEditWorker(All_workrers_model current_items, String forwaord){
             if(forwaord.equalsIgnoreCase("check_password")){
                 go_to_edit_worker_details_activity_intent =new Intent(context, CheckPasswordActivity.class);
                 go_to_edit_worker_details_activity_bunle =new Bundle();

@@ -19,7 +19,7 @@ import com.mokh.deoon.activities.CheckPasswordActivity;
 import com.mokh.deoon.activities.CreateInternalPasswordActivity;
 import com.mokh.deoon.activities.EditDebiteDetailsActivity;
 import com.mokh.deoon.activities.SearchForDebentureActivity;
-import com.mokh.deoon.items.Depits_items;
+import com.mokh.deoon.models.Depits_model;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_view_holder> {
 
-    ArrayList<Depits_items> depitsitem;
+    ArrayList<Depits_model> depitsitem;
 
 
     Context context;
@@ -35,7 +35,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
     Intent intent;
     Bundle bundle;
 
-    public Debits_adapter(Context context, ArrayList<Depits_items> depitsitem){
+    public Debits_adapter(Context context, ArrayList<Depits_model> depitsitem){
 
         this.context =context;
         this.depitsitem=depitsitem;
@@ -54,7 +54,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
     @Override
     public void onBindViewHolder(@NonNull final Debits_view_holder holder, int position) {
 
-        Depits_items current_items=depitsitem.get(position);
+        Depits_model current_items=depitsitem.get(position);
 
 
 
@@ -90,7 +90,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
 
     }
 
-    private void showDialogForCheckPassword(Depits_items current_items,String option){
+    private void showDialogForCheckPassword(Depits_model current_items, String option){
 
         new SweetAlertDialog(context,SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("كلمة المرور")
@@ -110,7 +110,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
 
 }
 
-    private void checkBeforeEditDebite(Depits_items current_items, String forWoard){
+    private void checkBeforeEditDebite(Depits_model current_items, String forWoard){
 
         if(forWoard.equalsIgnoreCase("check_password")){
             intent=new Intent(context, CheckPasswordActivity.class);
@@ -134,7 +134,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
 
     }
 
-    private void checkBeforeDeleteDebenture(Depits_items current_items){
+    private void checkBeforeDeleteDebenture(Depits_model current_items){
 
         intent = new Intent(context, CheckPasswordActivity.class);
         bundle = new Bundle();
@@ -145,7 +145,7 @@ public class Debits_adapter extends RecyclerView.Adapter<Debits_adapter.Debits_v
 
     }
 
-    private void showDialogForDeletedebite(Depits_items current_items){
+    private void showDialogForDeletedebite(Depits_model current_items){
         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
         sweetAlertDialog.setTitleText("تأكيد الحذف");
         sweetAlertDialog.setContentText("هل أنت متأكد من حذف هذه الفاتوره..!");

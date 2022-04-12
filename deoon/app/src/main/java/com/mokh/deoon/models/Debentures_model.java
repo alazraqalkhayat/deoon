@@ -1,6 +1,6 @@
-package com.mokh.deoon.items;
+package com.mokh.deoon.models;
 
-public class Debentures_items {
+public class Debentures_model {
 
     int debenture_id,money_paied;
     String employee_name;
@@ -48,7 +48,7 @@ public class Debentures_items {
 
     String customer_name;
 
-    public Debentures_items(int debenture_id, int money_paied, String employee_name, String date, String customer_name) {
+    public Debentures_model(int debenture_id, int money_paied, String employee_name, String date, String customer_name) {
         this.debenture_id = debenture_id;
         this.money_paied = money_paied;
         this.employee_name = employee_name;

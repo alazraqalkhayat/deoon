@@ -1,12 +1,8 @@
 package com.mokh.deoon;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
-
-import com.mokh.deoon.items.Items_of_all_customers;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

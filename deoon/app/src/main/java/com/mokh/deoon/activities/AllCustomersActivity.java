@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mokh.deoon.helper.Database_Connection;
-import com.mokh.deoon.items.Items_of_all_customers;
+import com.mokh.deoon.models.All_customers_model;
 import com.mokh.deoon.R;
 import com.mokh.deoon.helper.Shared_Helper;
 
@@ -27,7 +27,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AllCustomersActivity extends AppCompatActivity {
 
-    ArrayList<Items_of_all_customers> items_of_all_customers_arr;
+    ArrayList<All_customers_model> _all_customers_model_arr;
     ListView all_customers_list_view;
     All_customers_list_adapter all_customers_list_adapter;
     Database_Connection db;
@@ -45,10 +45,10 @@ public class AllCustomersActivity extends AppCompatActivity {
 
         all_customers_list_view=(ListView)findViewById(R.id.all_customers_activity_list_view);
         db=new Database_Connection(this);
-        items_of_all_customers_arr=new ArrayList<>();
-        items_of_all_customers_arr=db.getAllCustomersTOListView();
+        _all_customers_model_arr =new ArrayList<>();
+        _all_customers_model_arr =db.getAllCustomersTOListView();
 
-        all_customers_list_adapter=new All_customers_list_adapter(this,items_of_all_customers_arr);
+        all_customers_list_adapter=new All_customers_list_adapter(this, _all_customers_model_arr);
         all_customers_list_view.setAdapter(all_customers_list_adapter);
 
 
@@ -106,12 +106,12 @@ public class AllCustomersActivity extends AppCompatActivity {
         Intent intent;
         Bundle bundle;
 
-        ArrayList<Items_of_all_customers> arr;
+        ArrayList<All_customers_model> arr;
         Context context;
 
         Database_Connection db;
 
-        public All_customers_list_adapter(Context context, ArrayList<Items_of_all_customers> arr) {
+        public All_customers_list_adapter(Context context, ArrayList<All_customers_model> arr) {
             this.context=context;
             this.arr = arr;
 
@@ -138,7 +138,7 @@ public class AllCustomersActivity extends AppCompatActivity {
         @Override
         public View getView(final int position, View view, ViewGroup viewGroup) {
 
-            Items_of_all_customers current_items=arr.get(position);
+            All_customers_model current_items=arr.get(position);
 
 
 
@@ -187,7 +187,7 @@ public class AllCustomersActivity extends AppCompatActivity {
         }
 
 
-        private void showDialogForCheckPassword(Items_of_all_customers current_items,String option){
+        private void showDialogForCheckPassword(All_customers_model current_items, String option){
             SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
             sweetAlertDialog.setTitleText("كلمة المرور");
             sweetAlertDialog.setContentText("إن بياناتك معرضه للخطر .. قم بإنشاء كلمة مرور لأمان اكبر ");
@@ -217,7 +217,7 @@ public class AllCustomersActivity extends AppCompatActivity {
             sweetAlertDialog.show();
         }
 
-        private void checkBeforeEditCustomer(Items_of_all_customers current_items, String forWaord){
+        private void checkBeforeEditCustomer(All_customers_model current_items, String forWaord){
 
             if(forWaord.equalsIgnoreCase("check_password")){
                 intent =new Intent(context, CheckPasswordActivity.class);
@@ -239,7 +239,7 @@ public class AllCustomersActivity extends AppCompatActivity {
 
         }
 
-        private void checkBeforeDeleteCustomer(Items_of_all_customers current_items){
+        private void checkBeforeDeleteCustomer(All_customers_model current_items){
             intent =new Intent(context, CheckPasswordActivity.class);
             bundle =new Bundle();
 
@@ -254,7 +254,7 @@ public class AllCustomersActivity extends AppCompatActivity {
 
         }
 
-        private void showDialogForDeleteCustomer(Items_of_all_customers current_items,int adider){
+        private void showDialogForDeleteCustomer(All_customers_model current_items, int adider){
             SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE);
             sweetAlertDialog.setTitleText("تأكيد الحذف");
             sweetAlertDialog.setContentText("هل أنت متأكد من حذف هذا العميل .. عند الحذف ستحتذف جميع البيانات المتعلقه بهذا العميل");

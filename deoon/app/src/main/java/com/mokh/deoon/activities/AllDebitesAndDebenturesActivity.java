@@ -11,9 +11,9 @@ import android.view.MenuItem;
 
 import com.mokh.deoon.helper.Database_Connection;
 import com.mokh.deoon.adapters.Debentures_adapter;
-import com.mokh.deoon.items.Debentures_items;
+import com.mokh.deoon.models.Debentures_model;
 import com.mokh.deoon.adapters.Debits_adapter;
-import com.mokh.deoon.items.Depits_items;
+import com.mokh.deoon.models.Depits_model;
 import com.mokh.deoon.R;
 
 import java.util.ArrayList;
@@ -22,10 +22,10 @@ public class AllDebitesAndDebenturesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    ArrayList<Depits_items> depits_items;
+    ArrayList<Depits_model> depits_items;
     Debits_adapter debits_adapter;
 
-    ArrayList<Debentures_items> debentures_items;
+    ArrayList<Debentures_model> debentures_items;
     Debentures_adapter debentures_adapter;
 
 

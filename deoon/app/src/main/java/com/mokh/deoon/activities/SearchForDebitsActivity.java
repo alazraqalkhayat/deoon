@@ -15,7 +15,7 @@ import android.widget.Spinner;
 
 import com.mokh.deoon.helper.Database_Connection;
 import com.mokh.deoon.R;
-import com.mokh.deoon.items.SearchMethodeAndInternalPasswordItems;
+import com.mokh.deoon.models.SearchMethodeAndInternalPasswordModel;
 import com.mokh.deoon.adapters.SearchMethodeAndInternalPasswordItemsAdapter;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class SearchForDebitsActivity extends AppCompatActivity {
     AutoCompleteTextView customer_name_edit_text;
     ImageView search_image_view;
 
-    ArrayList<SearchMethodeAndInternalPasswordItems> spinnerArray;
+    ArrayList<SearchMethodeAndInternalPasswordModel> spinnerArray;
     SearchMethodeAndInternalPasswordItemsAdapter adapter;
 
     Database_Connection db;
@@ -60,7 +60,7 @@ public class SearchForDebitsActivity extends AppCompatActivity {
             search_methode_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    SearchMethodeAndInternalPasswordItems items=(SearchMethodeAndInternalPasswordItems)adapterView.getSelectedItem();
+                    SearchMethodeAndInternalPasswordModel items=(SearchMethodeAndInternalPasswordModel)adapterView.getSelectedItem();
                     //Toast.makeText(Sp_login_activity.this, items.getName_of_shop(), Toast.LENGTH_SHORT).show();
                     search_method_string=items.getItem();
                 }
@@ -104,8 +104,8 @@ public class SearchForDebitsActivity extends AppCompatActivity {
     private void initSpinner(){
 
         spinnerArray=new ArrayList<>();
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("كل الديون"));
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("الإجمالي"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("كل الديون"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("الإجمالي"));
 //        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("التاريخ"));
 
         adapter=new SearchMethodeAndInternalPasswordItemsAdapter(this,spinnerArray);

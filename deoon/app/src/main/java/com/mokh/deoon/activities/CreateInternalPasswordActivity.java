@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.mokh.deoon.R;
-import com.mokh.deoon.items.SearchMethodeAndInternalPasswordItems;
+import com.mokh.deoon.models.SearchMethodeAndInternalPasswordModel;
 import com.mokh.deoon.adapters.SearchMethodeAndInternalPasswordItemsAdapter;
 import com.mokh.deoon.helper.Shared_Helper;
 
@@ -29,7 +29,7 @@ public class CreateInternalPasswordActivity extends AppCompatActivity {
     ImageView save_image_view;
 
 
-    ArrayList<SearchMethodeAndInternalPasswordItems> spinnerArray;
+    ArrayList<SearchMethodeAndInternalPasswordModel> spinnerArray;
     SearchMethodeAndInternalPasswordItemsAdapter adapter;
 
     String protiction_qiestion_string;
@@ -51,7 +51,7 @@ public class CreateInternalPasswordActivity extends AppCompatActivity {
             protiction_questions_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    SearchMethodeAndInternalPasswordItems items=(SearchMethodeAndInternalPasswordItems)adapterView.getSelectedItem();
+                    SearchMethodeAndInternalPasswordModel items=(SearchMethodeAndInternalPasswordModel)adapterView.getSelectedItem();
                     //Toast.makeText(Sp_login_activity.this, items.getName_of_shop(), Toast.LENGTH_SHORT).show();
                     protiction_qiestion_string=items.getItem();
                 }
@@ -117,10 +117,10 @@ public class CreateInternalPasswordActivity extends AppCompatActivity {
     private void initSpinner(){
 
         spinnerArray=new ArrayList<>();
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("ماهي اول مدينه قمت بالسفر اليها؟"));
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("من هو صديق طفولتك المقرب؟"));
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("ماهي اول مدرسه قمت بالالتحاق بها؟"));
-        spinnerArray.add(new SearchMethodeAndInternalPasswordItems("ما اسم افضل كتاب قراءته بحياتك ؟"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("ماهي اول مدينه قمت بالسفر اليها؟"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("من هو صديق طفولتك المقرب؟"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("ماهي اول مدرسه قمت بالالتحاق بها؟"));
+        spinnerArray.add(new SearchMethodeAndInternalPasswordModel("ما اسم افضل كتاب قراءته بحياتك ؟"));
 
         adapter=new SearchMethodeAndInternalPasswordItemsAdapter(this,spinnerArray);
 

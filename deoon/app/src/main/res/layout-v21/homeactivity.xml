@@ -41,7 +41,8 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/employee_24"
+                            android:src="@drawable/customers_svg"
+                            android:paddingTop="10dp"
                             />
 
                         <TextView
@@ -59,7 +60,8 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/workers_24"
+                            android:src="@drawable/worker_svg"
+                            android:paddingTop="10dp"
                             />
 
                         <TextView
@@ -88,7 +90,8 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/person"
+                            android:src="@drawable/deptes_svg"
+                            android:paddingTop="10dp"
                             />
 
                         <TextView
@@ -106,7 +109,9 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/person"
+                            android:src="@drawable/depentures_svg"
+                            android:paddingTop="10dp"
+
                             />
 
                         <TextView
@@ -136,6 +141,7 @@
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
                             android:src="@drawable/rebort_24"
+                            android:paddingTop="5dp"
                             />
 
                         <TextView
@@ -154,7 +160,8 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/cloud_data_24"
+                            android:src="@drawable/cloud_svg"
+                            android:paddingTop="10dp"
                             />
 
                         <TextView
@@ -182,12 +189,15 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/settings_24"
+                            android:src="@drawable/setting_svg"
+                            android:paddingTop="10dp"
+
                             />
 
                         <TextView
                             style="@style/home_activity_text_view_of_linear_layout"
                             android:text="الإعدادت"
+
                             />
 
                     </LinearLayout>
@@ -200,7 +210,9 @@
 
                         <ImageView
                             style="@style/home_activity_image_view_of_linear_layout"
-                            android:src="@drawable/others2_24"
+                            android:src="@drawable/others_svg"
+                            android:paddingTop="15dp"
+
                             />
 
                         <TextView

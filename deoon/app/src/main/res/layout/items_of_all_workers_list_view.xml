@@ -45,7 +45,7 @@
             >
             <ImageView
                 style="@style/items_of_all_customer_edit_and_delete_icons_style"
-                android:src="@drawable/edit_24"
+                android:src="@drawable/edit_svg"
                 android:tint="@color/white"
                 android:id="@+id/items_of_all_workers_edit_customer_details_image_view"
 

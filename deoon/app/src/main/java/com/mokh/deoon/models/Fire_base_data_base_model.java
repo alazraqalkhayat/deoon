@@ -1,10 +1,10 @@
-package com.mokh.deoon.items;
+package com.mokh.deoon.models;
 
-public class Items_of_fire_base_data_base {
+public class Fire_base_data_base_model {
 
     String area,date,owner_name,owner_phone_number,password,user_name;
 
-    public Items_of_fire_base_data_base(String area, String date, String owner_name, String owner_phone_number, String password, String user_name) {
+    public Fire_base_data_base_model(String area, String date, String owner_name, String owner_phone_number, String password, String user_name) {
         this.area = area;
         this.date = date;
         this.owner_name = owner_name;

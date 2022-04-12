@@ -35,7 +35,7 @@
 
                 <ImageView
                     style="@style/all_edit_text_image_view_style"
-                    android:src="@drawable/person"
+                    android:src="@drawable/password_svg"
                     android:layout_weight="7"
                     android:background="@drawable/new_shape_of_edit_text_image_view"
                     />
@@ -75,7 +75,7 @@
 
                 <ImageView
                     style="@style/all_edit_text_image_view_style"
-                    android:src="@drawable/person"
+                    android:src="@drawable/lock2"
                     android:layout_weight="7"
                     android:background="@drawable/new_shape_of_edit_text_image_view"
                     />
@@ -117,7 +117,7 @@
 
                 <ImageView
                     style="@style/all_edit_text_image_view_style"
-                    android:src="@drawable/person"
+                    android:src="@drawable/lock2"
                     android:layout_weight="7"
                     android:background="@drawable/new_shape_of_edit_text_image_view"
                     />

@@ -5,7 +5,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
@@ -18,11 +17,10 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.mokh.deoon.helper.Database_Connection;
-import com.mokh.deoon.items.Debentures_items;
-import com.mokh.deoon.items.Depits_items;
+import com.mokh.deoon.models.Debentures_model;
+import com.mokh.deoon.models.Depits_model;
 import com.mokh.deoon.R;
 import com.mokh.deoon.helper.Shared_Helper;
 
@@ -49,8 +47,8 @@ public class ClearAndRebortActivity extends AppCompatActivity {
 
     Database_Connection db;
 
-    ArrayList<Depits_items> debite_items;
-    ArrayList<Debentures_items> debentures_items;
+    ArrayList<Depits_model> debite_items;
+    ArrayList<Debentures_model> debentures_items;
 
     String check_customer_name,date_time;
 
@@ -242,7 +240,7 @@ public class ClearAndRebortActivity extends AppCompatActivity {
 
 
             int startYPosition = 600;
-            for (Depits_items items : debite_items) {
+            for (Depits_model items : debite_items) {
 
                 paint.setTextSize(50f);
                 paint.setTextAlign(Paint.Align.LEFT);
@@ -315,14 +313,14 @@ public class ClearAndRebortActivity extends AppCompatActivity {
 
             } else {
 
-                for (Debentures_items debentures_items : debentures_items) {
+                for (Debentures_model debentures_model : debentures_items) {
 
                     paint.setTextSize(50f);
                     paint.setTextAlign(Paint.Align.CENTER);
-                    canvas2.drawText(String.valueOf(debentures_items.getDebenture_id()), 1100, startYPosition2, details_paint);
-                    canvas2.drawText(debentures_items.getEmployee_name(), 880, startYPosition2, details_paint);
-                    canvas2.drawText(debentures_items.getDate(), 380, startYPosition2, details_paint);
-                    canvas2.drawText(String.valueOf(debentures_items.getMoney_paied()), 150, startYPosition2, details_paint);
+                    canvas2.drawText(String.valueOf(debentures_model.getDebenture_id()), 1100, startYPosition2, details_paint);
+                    canvas2.drawText(debentures_model.getEmployee_name(), 880, startYPosition2, details_paint);
+                    canvas2.drawText(debentures_model.getDate(), 380, startYPosition2, details_paint);
+                    canvas2.drawText(String.valueOf(debentures_model.getMoney_paied()), 150, startYPosition2, details_paint);
 
                     canvas2.drawLine(10, startYPosition2 + 20, 1200, startYPosition2 + 20, paint);
 
